@@ -1,7 +1,7 @@
 {
   "name": "@humanode-hyperlane/registry",
   "description": "A collection of configs, artifacts, and schemas for Hyperlane",
-  "version": "23.12.0",
+  "version": "23.12.0-humanode.1",
   "dependencies": {
     "jszip": "^3.10.1",
     "yaml": "2.4.5",
