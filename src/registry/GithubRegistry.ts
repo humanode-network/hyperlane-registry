@@ -8,7 +8,7 @@ import type {
   ChainName,
   WarpCoreConfig,
   WarpRouteDeployConfig,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 
 import {
   CHAIN_FILE_REGEX,

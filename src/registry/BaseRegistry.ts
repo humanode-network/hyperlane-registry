@@ -7,8 +7,8 @@ import {
   HypTokenRouterConfig,
   WarpCoreConfig,
   WarpRouteDeployConfig,
-} from '@hyperlane-xyz/sdk';
-import { assert, objFilter, objLength } from '@hyperlane-xyz/utils';
+} from '@humanode-hyperlane/sdk';
+import { assert, objFilter, objLength } from '@humanode-hyperlane/utils';
 import { WARP_ROUTE_ID_REGEX } from '../consts.js';
 import type {
   AddWarpRouteConfigOptions,
@@ -41,7 +41,7 @@ export abstract class BaseRegistry implements IRegistry {
 
   constructor({ uri, logger }: { uri: string; logger?: Logger }) {
     this.uri = uri;
-    // @ts-ignore forcing in to avoid a @hyperlane-xyz/utils
+    // @ts-ignore forcing in to avoid a @humanode-hyperlane/utils
     // dependency here, which could bloat consumer bundles
     // unnecessarily (e.g. they just want metadata)
     this.logger = logger || console;

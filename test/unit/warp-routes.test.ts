@@ -5,7 +5,7 @@ import {
   TokenStandard,
   WarpCore,
   WarpRouteDeployConfigSchema,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import { FileSystemRegistry } from '../../src/fs/FileSystemRegistry.js';
 import path from 'path';
 import fs from 'fs';

@@ -6,7 +6,7 @@ import type {
   ChainName,
   WarpCoreConfig,
   WarpRouteDeployConfig,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import { AddWarpRouteConfigOptions, ChainAddresses, DeepPartial, WarpRouteId } from '../types.js';
 import { ChainFiles, IRegistry, RegistryContent, RegistryType } from './IRegistry.js';
 import { SynchronousRegistry } from './SynchronousRegistry.js';

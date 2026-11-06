@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChainMetadataSchemaObject, WarpCoreConfigSchema } from '@hyperlane-xyz/sdk';
+import { ChainMetadataSchemaObject, WarpCoreConfigSchema } from '@humanode-hyperlane/sdk';
 import fs from 'fs';
 import { parse, stringify } from 'yaml';
 import { zodToJsonSchema } from 'zod-to-json-schema';
@@ -15,22 +15,22 @@ function genJsExport(data, exportName) {
 }
 
 function genChainMetadataExport(data, exportName) {
-  return `import type { ChainMetadata } from '@hyperlane-xyz/sdk';
+  return `import type { ChainMetadata } from '@humanode-hyperlane/sdk';
 ${genJsExport(data, exportName)} as ChainMetadata`;
 }
 
 function genChainMetadataMapExport(data, exportName) {
-  return `import type { ChainMetadata, ChainMap } from '@hyperlane-xyz/sdk';
+  return `import type { ChainMetadata, ChainMap } from '@humanode-hyperlane/sdk';
 ${genJsExport(data, exportName)} as ChainMap<ChainMetadata>`;
 }
 
 function genWarpRouteConfigExport(data, exportName) {
-  return `import type { WarpCoreConfig } from '@hyperlane-xyz/sdk';
+  return `import type { WarpCoreConfig } from '@humanode-hyperlane/sdk';
 ${genJsExport(data, exportName)} as WarpCoreConfig`;
 }
 
 function genWarpRouteConfigMapExport(data, exportName) {
-  return `import type { WarpCoreConfig } from '@hyperlane-xyz/sdk';
+  return `import type { WarpCoreConfig } from '@humanode-hyperlane/sdk';
 ${genJsExport(data, exportName)} as Record<string, WarpCoreConfig>`;
 }
 

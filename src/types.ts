@@ -3,7 +3,7 @@ import {
   ChainName,
   type WarpCoreConfig,
   type WarpRouteDeployConfig,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import { z } from 'zod';
 
 import { WARP_ROUTE_ID_REGEX } from './consts.js';

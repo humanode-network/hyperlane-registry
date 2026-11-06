@@ -1,4 +1,4 @@
-# @hyperlane-xyz/registry
+# @humanode-hyperlane/registry
 
 ## 23.12.0
 
@@ -44,7 +44,7 @@
 - 0ee6eb6: Rotate lukso RPC
 - 1c02368: Fix check-warp-deploy workflow for fork PRs
 - e5bbb1a: Promote base drpc as first one for base `rpcUrls`
-- b3df0ac: Import yamlEslintConfig from @hyperlane-xyz/utils instead of defining inline
+- b3df0ac: Import yamlEslintConfig from @humanode-hyperlane/utils instead of defining inline
 - a27756f: Enable withdrawals from Krown warp routes (ETH, USDC, USDT)
 - a27756f: Transfer Krown warp route ownership to Krown team and add coinGeckoIds for collateral tokens
 - 8b19dec: Update CCTP v2 fast fees
@@ -566,7 +566,7 @@
 
 ### Minor Changes
 
-- e158598: Added custom YAML sorting rules from @hyperlane-xyz/utils to standardize registry file array ordering.
+- e158598: Added custom YAML sorting rules from @humanode-hyperlane/utils to standardize registry file array ordering.
 - c737841: Extend oUSDT to bob, hashkey.
 
 ## 17.2.0

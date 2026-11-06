@@ -9,7 +9,7 @@ import {
   type WarpCoreConfig,
   TokenType,
   TokenStandard,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import type { Logger } from 'pino';
 import fs from 'fs';
 import { CHAIN_FILE_REGEX, WARP_ROUTE_ID_REGEX } from '../../src/consts.js';

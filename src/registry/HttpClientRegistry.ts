@@ -4,7 +4,7 @@ import {
   ChainName,
   WarpCoreConfig,
   WarpRouteDeployConfig,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import {
   AddWarpRouteConfigOptions,
   ChainAddresses,

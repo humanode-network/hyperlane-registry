@@ -76,7 +76,7 @@ The library exports multiple registry implementations:
 
 The package exports chain metadata, addresses, and warp route configs in multiple formats:
 
-- Individual chain imports: `@hyperlane-xyz/registry/chains/{chainName}`
+- Individual chain imports: `@humanode-hyperlane/registry/chains/{chainName}`
 - Combined maps: `chainMetadata`, `chainAddresses`, `warpRouteConfigs`
 - Registry classes for programmatic access
 
@@ -90,8 +90,8 @@ The package exports chain metadata, addresses, and warp route configs in multipl
 
 ## Dependencies
 
-- `@hyperlane-xyz/sdk` - Hyperlane SDK types (ChainMetadata, WarpCoreConfig)
-- `@hyperlane-xyz/utils` - Utility functions and ESLint plugin for YAML sorting
+- `@humanode-hyperlane/sdk` - Hyperlane SDK types (ChainMetadata, WarpCoreConfig)
+- `@humanode-hyperlane/utils` - Utility functions and ESLint plugin for YAML sorting
 - `zod` - Schema validation
 - `yaml` - YAML parsing/serialization
 

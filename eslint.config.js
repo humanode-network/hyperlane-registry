@@ -2,9 +2,11 @@ import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import tsparser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
-import { yamlEslintConfig } from '@hyperlane-xyz/utils/eslint-rules';
+import { yamlEslintConfig } from './eslint-rules.js';
 
 export default tseslint.config(
+  // pnpm writes its lockfile in its own style.
+  { ignores: ['pnpm-lock.yaml'] },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...yamlEslintConfig,
