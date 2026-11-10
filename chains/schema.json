@@ -92,11 +92,14 @@
         "technicalStack": {
           "$ref": "#/definitions/__schema66"
         },
-        "transactionOverrides": {
+        "contractsVariant": {
           "$ref": "#/definitions/__schema68"
         },
-        "gasPrice": {
+        "transactionOverrides": {
           "$ref": "#/definitions/__schema70"
+        },
+        "gasPrice": {
+          "$ref": "#/definitions/__schema72"
         }
       },
       "required": [
@@ -822,7 +825,7 @@
       ]
     },
     "__schema68": {
-      "description": "Properties to include when forming transaction requests.",
+      "description": "The build of the Hyperlane contracts to deploy on the chain, when the chain's EVM lacks opcodes the default build uses: 'paris' for an EVM without the Cancun opcodes. Unset for the default build.",
       "allOf": [
         {
           "$ref": "#/definitions/__schema69"
@@ -830,14 +833,13 @@
       ]
     },
     "__schema69": {
-      "type": "object",
-      "propertyNames": {
-        "type": "string"
-      },
-      "additionalProperties": {}
+      "type": "string",
+      "enum": [
+        "paris"
+      ]
     },
     "__schema70": {
-      "description": "The gas price of Cosmos chains.",
+      "description": "Properties to include when forming transaction requests.",
       "allOf": [
         {
           "$ref": "#/definitions/__schema71"
@@ -845,6 +847,21 @@
       ]
     },
     "__schema71": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {}
+    },
+    "__schema72": {
+      "description": "The gas price of Cosmos chains.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/__schema73"
+        }
+      ]
+    },
+    "__schema73": {
       "type": "object",
       "properties": {
         "denom": {
