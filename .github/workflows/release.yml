@@ -89,7 +89,7 @@ jobs:
         id: check
         run: |
           LOCAL_VERSION=$(jq -r '.version' package.json)
-          PUBLISHED_VERSION=$(npm view @hyperlane-xyz/registry version 2>/dev/null || echo "N/A")
+          PUBLISHED_VERSION=$(npm view @humanode-hyperlane/registry version 2>/dev/null || echo "N/A")
           echo "Local: $LOCAL_VERSION, Published: $PUBLISHED_VERSION"
           if [ "$LOCAL_VERSION" = "$PUBLISHED_VERSION" ]; then
             echo "all_latest=true" >> $GITHUB_OUTPUT
@@ -226,7 +226,7 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Install with:" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`bash" >> $GITHUB_STEP_SUMMARY
-          echo "npm install @hyperlane-xyz/registry@${{ inputs.snapshot_tag }}" >> $GITHUB_STEP_SUMMARY
+          echo "npm install @humanode-hyperlane/registry@${{ inputs.snapshot_tag }}" >> $GITHUB_STEP_SUMMARY
           echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
   notify-publish-failure:

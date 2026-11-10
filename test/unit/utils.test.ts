@@ -1,4 +1,4 @@
-import type { WarpCoreConfig } from '@hyperlane-xyz/sdk';
+import type { WarpCoreConfig } from '@humanode-hyperlane/sdk';
 import { expect } from 'chai';
 import {
   filterWarpRoutesIds,

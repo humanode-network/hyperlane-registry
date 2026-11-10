@@ -49,8 +49,8 @@ jobs:
       - name: Get latest SDK and Utils versions
         id: get-versions
         run: |
-          LATEST_SDK=$(pnpm view @hyperlane-xyz/sdk version)
-          LATEST_UTILS=$(pnpm view @hyperlane-xyz/utils version)
+          LATEST_SDK=$(pnpm view @humanode-hyperlane/sdk version)
+          LATEST_UTILS=$(pnpm view @humanode-hyperlane/utils version)
           echo "sdk=$LATEST_SDK" >> $GITHUB_OUTPUT
           echo "utils=$LATEST_UTILS" >> $GITHUB_OUTPUT
           echo "Latest SDK: $LATEST_SDK"
@@ -58,8 +58,8 @@ jobs:
 
       - name: Update package.json with latest versions
         run: |
-          npm pkg set devDependencies.@hyperlane-xyz/sdk=${{ steps.get-versions.outputs.sdk }}
-          npm pkg set devDependencies.@hyperlane-xyz/utils=${{ steps.get-versions.outputs.utils }}
+          npm pkg set devDependencies.@humanode-hyperlane/sdk=${{ steps.get-versions.outputs.sdk }}
+          npm pkg set devDependencies.@humanode-hyperlane/utils=${{ steps.get-versions.outputs.utils }}
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
@@ -80,7 +80,7 @@ jobs:
           CHANGESET_FILE=".changeset/auto-update-hyperlane-deps-$(date +%s).md"
           cat << 'EOF' > "$CHANGESET_FILE"
           ---
-          "@hyperlane-xyz/registry": minor
+          "@humanode-hyperlane/registry": minor
           ---
 
           Update Hyperlane dependencies to SDK ${{ steps.get-versions.outputs.sdk }} and Utils ${{ steps.get-versions.outputs.utils }}
@@ -97,8 +97,8 @@ jobs:
             git add -A
             git commit -m "chore: update Hyperlane deps to SDK ${{ steps.get-versions.outputs.sdk }} and Utils ${{ steps.get-versions.outputs.utils }}
 
-          - Update @hyperlane-xyz/sdk to ${{ steps.get-versions.outputs.sdk }}
-          - Update @hyperlane-xyz/utils to ${{ steps.get-versions.outputs.utils }}
+          - Update @humanode-hyperlane/sdk to ${{ steps.get-versions.outputs.sdk }}
+          - Update @humanode-hyperlane/utils to ${{ steps.get-versions.outputs.utils }}
           - Update pnpm-lock.yaml
           - Add changeset for dependency updates"
 
@@ -110,8 +110,8 @@ jobs:
           This PR updates the Hyperlane dependencies to their latest versions.
 
           **Updated versions:**
-          - \`@hyperlane-xyz/sdk\`: \`${{ steps.get-versions.outputs.sdk }}\`
-          - \`@hyperlane-xyz/utils\`: \`${{ steps.get-versions.outputs.utils }}\`
+          - \`@humanode-hyperlane/sdk\`: \`${{ steps.get-versions.outputs.sdk }}\`
+          - \`@humanode-hyperlane/utils\`: \`${{ steps.get-versions.outputs.utils }}\`
 
           **Changes include:**
           - Updated \`package.json\` with latest SDK and Utils versions

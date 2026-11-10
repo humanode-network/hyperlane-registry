@@ -1,8 +1,11 @@
-import type { ChainMetadata } from '@hyperlane-xyz/sdk/metadata/chainMetadataTypes';
-import type { HypTokenRouterConfig, WarpRouteDeployConfig } from '@hyperlane-xyz/sdk/token/types';
-import type { ChainMap, ChainName } from '@hyperlane-xyz/sdk/types';
-import type { WarpCoreConfig } from '@hyperlane-xyz/sdk/warp/types';
-import { assert, objFilter, objLength } from '@hyperlane-xyz/utils';
+import type { ChainMetadata } from '@humanode-hyperlane/sdk/metadata/chainMetadataTypes';
+import type {
+  HypTokenRouterConfig,
+  WarpRouteDeployConfig,
+} from '@humanode-hyperlane/sdk/token/types';
+import type { ChainMap, ChainName } from '@humanode-hyperlane/sdk/types';
+import type { WarpCoreConfig } from '@humanode-hyperlane/sdk/warp/types';
+import { assert, objFilter, objLength } from '@humanode-hyperlane/utils';
 import type { Logger } from 'pino';
 
 import { WARP_ROUTE_ID_REGEX } from '../consts.js';
@@ -37,7 +40,7 @@ export abstract class BaseRegistry implements IRegistry {
 
   constructor({ uri, logger }: { uri: string; logger?: Logger }) {
     this.uri = uri;
-    // @ts-ignore forcing in to avoid a @hyperlane-xyz/utils
+    // @ts-ignore forcing in to avoid a @humanode-hyperlane/utils
     // dependency here, which could bloat consumer bundles
     // unnecessarily (e.g. they just want metadata)
     this.logger = logger || console;

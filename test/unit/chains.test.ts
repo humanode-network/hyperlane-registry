@@ -2,8 +2,8 @@ import {
   ChainMetadataSchema,
   ChainTechnicalStack,
   EthJsonRpcBlockParameterTag,
-} from '@hyperlane-xyz/sdk';
-import { ProtocolType } from '@hyperlane-xyz/utils';
+} from '@humanode-hyperlane/sdk';
+import { ProtocolType } from '@humanode-hyperlane/utils';
 import { chainAddresses, chainMetadata } from '../../dist/index.js';
 import { ChainAddressesSchema } from '../../src/types.js';
 import { isAbacusWorksChain } from '../../src/utils.js';

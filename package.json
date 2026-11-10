@@ -1,5 +1,5 @@
 {
-  "name": "@hyperlane-xyz/registry",
+  "name": "@humanode-hyperlane/registry",
   "version": "26.3.0",
   "description": "A collection of configs, artifacts, and schemas for Hyperlane",
   "keywords": [
@@ -10,7 +10,7 @@
   ],
   "homepage": "https://www.hyperlane.xyz",
   "license": "MIT",
-  "repository": "https://github.com/hyperlane-xyz/hyperlane-registry",
+  "repository": "https://github.com/humanode-network/hyperlane-registry",
   "files": [
     "/dist"
   ],
@@ -54,8 +54,8 @@
   "devDependencies": {
     "@changesets/cli": "^2.31.1",
     "@faker-js/faker": "^10.5.0",
-    "@hyperlane-xyz/sdk": "45.0.1",
-    "@hyperlane-xyz/utils": "45.0.1",
+    "@humanode-hyperlane/sdk": "45.0.1",
+    "@humanode-hyperlane/utils": "45.0.1",
     "@types/chai-as-promised": "^8.0.2",
     "@types/mocha": "^10.0.10",
     "@types/node": "^26.1.2",

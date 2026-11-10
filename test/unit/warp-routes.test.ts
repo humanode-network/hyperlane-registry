@@ -6,7 +6,7 @@ import {
   TokenStandard,
   WarpCore,
   WarpRouteDeployConfigSchema,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 import { expect } from 'chai';
 import { parse } from 'yaml';
 

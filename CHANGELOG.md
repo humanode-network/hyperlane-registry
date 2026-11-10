@@ -1,4 +1,4 @@
-# @hyperlane-xyz/registry
+# @humanode-hyperlane/registry
 
 ## 26.3.0
 
@@ -88,7 +88,7 @@
 - ebc1353: Added resilient public RPC fallbacks for Starknet mainnet ahead of the discontinued Lava endpoint.
 - 26fb0a5: Removed the discontinued Lava Starknet mainnet RPC and pinned the Cartridge endpoint to JSON-RPC v0.9.
 - 09aa835: The USDC/aleo solanamainnet router set, the USDC/radix ethereum ISM, and the carrchain batch route bsc/ethereum hooks and ISMs were synced to on-chain state.
-- 50f31f4: The LYX/lukso, USDC/lukso, MAGIC/abstract and SOLX/nitro warp route deploy configs were synced to on-chain state by adding the missing token decimals, scale and destination gas, the enrolled LYX base remote router and the still-enrolled MAGIC ronin remote router as temporary explicit mappings, the SOLX solanamainnet routing message-id multisig ISM program, and by removing the redundant MAGIC synthetic token addresses. The SOLX scale was also added to its core config. Comments documenting the base and ronin decisions were added. The `@hyperlane-xyz/sdk` and `@hyperlane-xyz/utils` development dependencies were updated to 45.0.1, so the warp route check runs on the CLI release that can read these routes.
+- 50f31f4: The LYX/lukso, USDC/lukso, MAGIC/abstract and SOLX/nitro warp route deploy configs were synced to on-chain state by adding the missing token decimals, scale and destination gas, the enrolled LYX base remote router and the still-enrolled MAGIC ronin remote router as temporary explicit mappings, the SOLX solanamainnet routing message-id multisig ISM program, and by removing the redundant MAGIC synthetic token addresses. The SOLX scale was also added to its core config. Comments documenting the base and ronin decisions were added. The `@humanode-hyperlane/sdk` and `@humanode-hyperlane/utils` development dependencies were updated to 45.0.1, so the warp route check runs on the CLI release that can read these routes.
 - 2d6fa12: The tETH eclipsemainnet↔ethereum warp route was missing the `scale: 1000000000` field on its Eclipse SealevelHypSynthetic token (9 decimals bridging to an 18-decimal Ethereum collateral). Without it, consumers reading the message amount with the origin token's 9 decimals displayed transfers inflated by 1e9 (e.g. a 0.0115 tETH transfer shown as ~11.5M). The scale was added to match the sibling eclipsemainnet↔ethereum routes (weETHs, apxETH).
 - 872021d: Updated the Aleo BAT, USDG, and ZEC warp route owners, CoinGecko IDs, and token logos.
 - 468315c: the KII/kiichain bsc rate limit ISM maxCapacity was synced to the onchain value of 1M KII
@@ -525,7 +525,7 @@
 - 0ee6eb6: Rotate lukso RPC
 - 1c02368: Fix check-warp-deploy workflow for fork PRs
 - e5bbb1a: Promote base drpc as first one for base `rpcUrls`
-- b3df0ac: Import yamlEslintConfig from @hyperlane-xyz/utils instead of defining inline
+- b3df0ac: Import yamlEslintConfig from @humanode-hyperlane/utils instead of defining inline
 - a27756f: Enable withdrawals from Krown warp routes (ETH, USDC, USDT)
 - a27756f: Transfer Krown warp route ownership to Krown team and add coinGeckoIds for collateral tokens
 - 8b19dec: Update CCTP v2 fast fees
@@ -1047,7 +1047,7 @@
 
 ### Minor Changes
 
-- e158598: Added custom YAML sorting rules from @hyperlane-xyz/utils to standardize registry file array ordering.
+- e158598: Added custom YAML sorting rules from @humanode-hyperlane/utils to standardize registry file array ordering.
 - c737841: Extend oUSDT to bob, hashkey.
 
 ## 17.2.0

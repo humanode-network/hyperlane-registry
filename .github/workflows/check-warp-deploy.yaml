@@ -30,13 +30,13 @@ jobs:
       - name: Determine Hyperlane package version
         id: hyperlane-version
         run: |
-          VERSION="$(jq -r '.dependencies["@hyperlane-xyz/sdk"] // .devDependencies["@hyperlane-xyz/sdk"] // empty' package.json)"
+          VERSION="$(jq -r '.dependencies["@humanode-hyperlane/sdk"] // .devDependencies["@humanode-hyperlane/sdk"] // empty' package.json)"
           if [ -z "$VERSION" ]; then
-            echo "Missing @hyperlane-xyz/sdk dependency"
+            echo "Missing @humanode-hyperlane/sdk dependency"
             exit 1
           fi
           if ! [[ "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
-            echo "Expected exact semver @hyperlane-xyz/sdk version, got $VERSION"
+            echo "Expected exact semver @humanode-hyperlane/sdk version, got $VERSION"
             exit 1
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
@@ -45,11 +45,11 @@ jobs:
         env:
           HYPERLANE_CLI_VERSION: ${{ steps.hyperlane-version.outputs.version }}
         run: |
-          if ! npm view "@hyperlane-xyz/cli@${HYPERLANE_CLI_VERSION}" version >/dev/null 2>&1; then
-            echo "No published @hyperlane-xyz/cli version ${HYPERLANE_CLI_VERSION}"
+          if ! npm view "@humanode-hyperlane/cli@${HYPERLANE_CLI_VERSION}" version >/dev/null 2>&1; then
+            echo "No published @humanode-hyperlane/cli version ${HYPERLANE_CLI_VERSION}"
             exit 1
           fi
-          npm i -g "@hyperlane-xyz/cli@${HYPERLANE_CLI_VERSION}"
+          npm i -g "@humanode-hyperlane/cli@${HYPERLANE_CLI_VERSION}"
 
       - name: Determine Base & Head SHA
         id: determine-base-sha

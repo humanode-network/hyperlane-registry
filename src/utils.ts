@@ -1,10 +1,10 @@
-import type { ChainMetadata } from '@hyperlane-xyz/sdk/metadata/chainMetadataTypes';
+import type { ChainMetadata } from '@humanode-hyperlane/sdk/metadata/chainMetadataTypes';
 import {
   type NormalizedScale,
   type ScaleInput,
   normalizeScale as sdkNormalizeScale,
-} from '@hyperlane-xyz/sdk/utils/decimals';
-import { isNullish } from '@hyperlane-xyz/utils';
+} from '@humanode-hyperlane/sdk/utils/decimals';
+import { isNullish } from '@humanode-hyperlane/utils';
 import { stringify } from 'yaml';
 
 import { ABACUS_WORKS_DEPLOYER_NAME } from './consts.js';
