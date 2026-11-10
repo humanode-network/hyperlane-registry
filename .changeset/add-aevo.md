@@ -1,5 +1,5 @@
 ---
-'@hyperlane-xyz/registry': minor
+'@humanode-hyperlane/registry': minor
 ---
 
 added Aevo mainnet metadata and Hyperlane core deployment addresses

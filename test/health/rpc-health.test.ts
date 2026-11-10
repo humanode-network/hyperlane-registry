@@ -7,12 +7,12 @@ import {
   RpcUrl,
   SolanaWeb3Provider,
   protocolToDefaultProviderBuilder,
-} from '@hyperlane-xyz/sdk';
-import { sleep } from '@hyperlane-xyz/utils';
+} from '@humanode-hyperlane/sdk';
+import { sleep } from '@humanode-hyperlane/utils';
 import { expect } from 'chai';
 import { chainAddresses, chainMetadata } from '../../dist/index.js';
 
-import { Mailbox__factory } from '@hyperlane-xyz/core';
+import { Mailbox__factory } from '@humanode-hyperlane/core';
 
 const CHAINS_TO_SKIP = new Set([
   // No Healthy RPC

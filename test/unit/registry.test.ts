@@ -7,7 +7,7 @@ import {
   type WarpCoreConfig,
   TokenType,
   TokenStandard,
-} from '@hyperlane-xyz/sdk';
+} from '@humanode-hyperlane/sdk';
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { use as chaiUse, expect } from 'chai';
 import chaiAsPromised from 'chai-as-promised';

@@ -1,8 +1,8 @@
 import fs from 'fs';
 import { stringify } from 'yaml';
-import { chainMetadata, hyperlaneContractAddresses } from '@hyperlane-xyz/sdk';
+import { chainMetadata, hyperlaneContractAddresses } from '@humanode-hyperlane/sdk';
 
-const LOGO_DIR_PATH = './node_modules/@hyperlane-xyz/sdk/logos/color';
+const LOGO_DIR_PATH = './node_modules/@humanode-hyperlane/sdk/logos/color';
 const CHAIN_SCHEMA_REF = '# yaml-language-server: $schema=../schema.json';
 
 console.log('Migrating chain data from SDK');

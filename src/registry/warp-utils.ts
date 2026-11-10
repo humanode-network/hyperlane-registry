@@ -1,6 +1,6 @@
-import { TOKEN_HYP_STANDARDS, TokenStandard } from '@hyperlane-xyz/sdk/token/TokenStandard';
-import type { ChainMap } from '@hyperlane-xyz/sdk/types';
-import type { WarpCoreConfig } from '@hyperlane-xyz/sdk/warp/types';
+import { TOKEN_HYP_STANDARDS, TokenStandard } from '@humanode-hyperlane/sdk/token/TokenStandard';
+import type { ChainMap } from '@humanode-hyperlane/sdk/types';
+import type { WarpCoreConfig } from '@humanode-hyperlane/sdk/warp/types';
 
 import { WARP_ROUTE_CONFIG_FILE_REGEX, WARP_ROUTE_DEPLOY_FILE_REGEX } from '../consts.js';
 import { ChainAddresses, WarpRouteFilterParams, WarpRouteId } from '../types.js';

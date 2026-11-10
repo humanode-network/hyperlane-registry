@@ -1,6 +1,6 @@
 # Hyperlane Warp Routes
 
-This directory contains a list of Warp Route configs. They can be used to interact with warp routes in the [Warp UI](https://github.com/hyperlane-xyz/hyperlane-warp-ui-template) or [CLI](https://www.npmjs.com/package/@hyperlane-xyz/cli).
+This directory contains a list of Warp Route configs. They can be used to interact with warp routes in the [Warp UI](https://github.com/hyperlane-xyz/hyperlane-warp-ui-template) or [CLI](https://www.npmjs.com/package/@humanode-hyperlane/cli).
 
 ## Structure
 

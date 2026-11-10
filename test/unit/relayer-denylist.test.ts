@@ -6,7 +6,7 @@ import {
   isValidAddressCosmos,
   isValidAddressEvm,
   isValidAddressSealevel,
-} from '@hyperlane-xyz/utils';
+} from '@humanode-hyperlane/utils';
 import { expect } from 'chai';
 import { RE2JS } from 're2js';
 import { RRegex } from 'rregex';

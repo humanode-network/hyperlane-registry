@@ -1,7 +1,7 @@
-import type { ChainMetadata } from '@hyperlane-xyz/sdk/metadata/chainMetadataTypes';
-import type { WarpRouteDeployConfig } from '@hyperlane-xyz/sdk/token/types';
-import type { ChainMap, ChainName } from '@hyperlane-xyz/sdk/types';
-import type { WarpCoreConfig } from '@hyperlane-xyz/sdk/warp/types';
+import type { ChainMetadata } from '@humanode-hyperlane/sdk/metadata/chainMetadataTypes';
+import type { WarpRouteDeployConfig } from '@humanode-hyperlane/sdk/token/types';
+import type { ChainMap, ChainName } from '@humanode-hyperlane/sdk/types';
+import type { WarpCoreConfig } from '@humanode-hyperlane/sdk/warp/types';
 import type { Logger } from 'pino';
 
 import { AddWarpRouteConfigOptions, ChainAddresses, DeepPartial, WarpRouteId } from '../types.js';

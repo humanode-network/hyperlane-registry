@@ -1,5 +1,5 @@
-import { ChainMetadata } from '@hyperlane-xyz/sdk';
-import { Address, ProtocolType, sleep } from '@hyperlane-xyz/utils';
+import { ChainMetadata } from '@humanode-hyperlane/sdk';
+import { Address, ProtocolType, sleep } from '@humanode-hyperlane/utils';
 import { expect } from 'chai';
 import { chainMetadata } from '../../dist/index.js';
 // TODO export these from the SDK
@@ -7,7 +7,7 @@ import {
   getExplorerAddressUrl,
   getExplorerBaseUrl,
   getExplorerTxUrl,
-} from '../../node_modules/@hyperlane-xyz/sdk/dist/metadata/blockExplorer.js';
+} from '../../node_modules/@humanode-hyperlane/sdk/dist/metadata/blockExplorer.js';
 
 const CHAINS_TO_SKIP = [
   'base', // explorer works but has extremely strict rate limits
