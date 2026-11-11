@@ -9,15 +9,6 @@ jobs:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      # Skip token generation for fork PRs (they don't have access to secrets)
-      - name: Generate GitHub App Token
-        id: generate-token
-        if: github.event.pull_request.head.repo.full_name == github.repository
-        uses: actions/create-github-app-token@v2
-        with:
-          app-id: ${{ secrets.HYPER_GONK_APP_ID }}
-          private-key: ${{ secrets.HYPER_GONK_PRIVATE_KEY }}
-
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.pull_request.head.sha }}
@@ -73,8 +64,10 @@ jobs:
           # Set by the overlay step above; consumed by check-warp-deploy.sh as a
           # second `--registry`. Empty when no overrides were provided.
           RPC_OVERLAY_DIR: ${{ env.RPC_OVERLAY_DIR }}
-          # Only set PR_NUMBER for non-fork PRs (enables PR commenting)
+          # Only set PR_NUMBER for non-fork PRs (enables PR commenting). The
+          # comment is posted with the workflow's own token; upstream used a
+          # GitHub App here.
           PR_NUMBER: ${{ github.event.pull_request.head.repo.full_name == github.repository && github.event.pull_request.number || '' }}
-          GITHUB_TOKEN: ${{ steps.generate-token.outputs.token }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           ./scripts/check-warp-deploy.sh ${{ steps.determine-base-sha.outputs.base_sha }} ${{ steps.determine-base-sha.outputs.current_sha }}
