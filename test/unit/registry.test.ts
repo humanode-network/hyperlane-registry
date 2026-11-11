@@ -50,7 +50,7 @@ describe('Registry utilities', () => {
     branch: GITHUB_REGISTRY_BRANCH,
     authToken: process.env.GITHUB_TOKEN,
   });
-  expect(githubRegistry.repoOwner).to.eql('hyperlane-xyz');
+  expect(githubRegistry.repoOwner).to.eql('humanode-network');
   expect(githubRegistry.repoName).to.eql('hyperlane-registry');
   expect(githubRegistry.branch).to.eql(GITHUB_REGISTRY_BRANCH);
 
@@ -421,14 +421,14 @@ describe('Registry utilities', () => {
     it('always uses the public api if rate limit has not been hit', async () => {
       getApiRateLimitStub.returns({ remaining: 10 });
       expect(await proxiedGithubRegistry.getApiUrl()).to.equal(
-        `${GITHUB_API_URL}/repos/hyperlane-xyz/hyperlane-registry/git/trees/main?recursive=true`,
+        `${GITHUB_API_URL}/repos/humanode-network/hyperlane-registry/git/trees/main?recursive=true`,
       );
     });
 
     it('should fallback to proxy url if public rate limit has been hit', async () => {
       getApiRateLimitStub.returns({ remaining: 0 });
       expect(await proxiedGithubRegistry.getApiUrl()).to.equal(
-        `${proxyUrl}/repos/hyperlane-xyz/hyperlane-registry/git/trees/main?recursive=true`,
+        `${proxyUrl}/repos/humanode-network/hyperlane-registry/git/trees/main?recursive=true`,
       );
     });
   });
@@ -472,14 +472,14 @@ describe('Registry utilities', () => {
       it('always uses the authenticated api if rate limit has been not been hit', async () => {
         getApiRateLimitStub.resolves({ limit: 100, used: 90, remaining: 10, reset: 1234567890 });
         expect(await authenticatedGithubRegistry.getApiUrl()).to.equal(
-          `${GITHUB_API_URL}/repos/hyperlane-xyz/hyperlane-registry/git/trees/main?recursive=true`,
+          `${GITHUB_API_URL}/repos/humanode-network/hyperlane-registry/git/trees/main?recursive=true`,
         );
       });
 
       it('should fallback to proxy url if public rate limit has been hit', async () => {
         getApiRateLimitStub.resolves({ limit: 100, used: 100, remaining: 0, reset: 1234567890 });
         expect(await authenticatedGithubRegistry.getApiUrl()).to.equal(
-          `${proxyUrl}/repos/hyperlane-xyz/hyperlane-registry/git/trees/main?recursive=true`,
+          `${proxyUrl}/repos/humanode-network/hyperlane-registry/git/trees/main?recursive=true`,
         );
       });
     });
@@ -533,7 +533,7 @@ describe('Registry Utils', () => {
   } as any;
 
   const localPath = './';
-  const githubUrl = 'https://github.com/hyperlane-xyz/hyperlane-registry';
+  const githubUrl = 'https://github.com/humanode-network/hyperlane-registry';
 
   describe('getRegistry', () => {
     type TestCase = {
