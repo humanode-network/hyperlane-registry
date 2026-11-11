@@ -16,7 +16,7 @@ import RandExp from 'randexp';
 import sinon from 'sinon';
 
 import { CHAIN_FILE_REGEX, WARP_ROUTE_ID_REGEX } from '../../src/consts.js';
-import { DEFAULT_GITHUB_REGISTRY, PROXY_DEPLOYED_URL } from '../../src/consts.js';
+import { DEFAULT_GITHUB_REGISTRY } from '../../src/consts.js';
 import { FileSystemRegistry } from '../../src/fs/FileSystemRegistry.js';
 import { getRegistry } from '../../src/fs/registry-utils.js';
 import { BaseRegistry } from '../../src/registry/BaseRegistry.js';
@@ -563,14 +563,13 @@ describe('Registry Utils', () => {
         expectedRegistries: [{ type: GithubRegistry, uri: githubUrl, branch: 'main' }],
       },
       {
-        name: 'proxied GithubRegistry for canonical repo',
+        name: 'GithubRegistry for the default repo, without a proxy when one is requested',
         uris: [DEFAULT_GITHUB_REGISTRY],
         useProxy: true,
         expectedRegistries: [
           {
             type: GithubRegistry,
             uri: DEFAULT_GITHUB_REGISTRY,
-            proxyUrl: PROXY_DEPLOYED_URL,
             branch: 'main',
           },
         ],
@@ -599,14 +598,13 @@ describe('Registry Utils', () => {
         ],
       },
       {
-        name: 'mixed registry types with proxy settings',
+        name: 'mixed registry types, without a proxy when one is requested',
         uris: [DEFAULT_GITHUB_REGISTRY, localPath, 'https://github.com/user/test'],
         useProxy: true,
         expectedRegistries: [
           {
             type: GithubRegistry,
             uri: DEFAULT_GITHUB_REGISTRY,
-            proxyUrl: PROXY_DEPLOYED_URL,
             branch: 'main',
           },
           { type: FileSystemRegistry, uri: localPath },
@@ -614,7 +612,6 @@ describe('Registry Utils', () => {
             type: GithubRegistry,
             uri: 'https://github.com/user/test',
             branch: 'main',
-            proxyUrl: PROXY_DEPLOYED_URL,
           },
         ],
       },
