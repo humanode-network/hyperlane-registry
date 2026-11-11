@@ -154,7 +154,6 @@ EOF
 7. **Warp ID format** - Must be `{SYMBOL}/{label}`, e.g., `USDC/ethereum-arbitrum`
 8. **Address provenance** - When adding/changing addresses, note the source (PR, tx hash)
 9. **Deterministic ordering** - Sort arrays/maps before processing for consistent output
-10. **Changesets** - Include changeset files for version-bumped changes
 
 ## Verify Before Acting
 

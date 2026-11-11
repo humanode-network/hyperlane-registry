@@ -3,8 +3,9 @@ name: NPM Release
 # Publishes `@humanode-hyperlane/registry` on a manually pushed
 # `npm-v<package version>` tag, through npm's trusted publishing: npm checks
 # this workflow's OIDC identity, so no npm token is stored, and the package gets
-# a provenance statement. Upstream's `release.yml` publishes `@hyperlane-xyz`
-# through changesets release PRs and a GitHub App, and is not used in this fork.
+# a provenance statement. Upstream's `release.yml` published `@hyperlane-xyz`
+# through changesets release PRs and a GitHub App; our versions follow upstream's
+# releases, so that workflow is gone from this fork.
 
 on:
   push:

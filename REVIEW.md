@@ -32,7 +32,6 @@
 
 - **Warp ID format** - Must be `{SYMBOL}/{label}` (e.g., `USDC/ethereum-arbitrum`)
 - **Address provenance** - Note source of address changes (monorepo PR, deployment tx)
-- **Changeset required** - Include changeset for version bumps
 - **YAML keys alphabetical** - ESLint enforces sorted keys
 - **No Node.js in main src/** - Only `src/fs/` can import Node.js modules
 - **Deterministic ordering** - Sort arrays/maps before processing
