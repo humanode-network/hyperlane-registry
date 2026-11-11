@@ -1,6 +1,5 @@
 import type { Logger } from 'pino';
 
-import { PROXY_DEPLOYED_URL } from '../consts.js';
 import { GithubRegistry } from '../registry/GithubRegistry.js';
 import { HttpClientRegistry } from '../registry/HttpClientRegistry.js';
 import { IRegistry } from '../registry/IRegistry.js';
@@ -51,14 +50,16 @@ const isValidFilePath = (path: string): boolean => {
  * specified registries.
  *
  * @param registryUris - An array of registry URIs to use for creating the registry.
- * @param enableProxy - If enabled, forwards all requests to Hyperlane Registry, with higher read limits.
+ * @param enableProxy - Accepted for compatibility with upstream's callers and without effect: this fork
+ *   runs no GitHub API proxy, so GitHub registries are read from GitHub directly. Higher read limits come
+ *   from `authToken`.
  * @param branch - An optional branch name to use for the GitHub registry.
  * @param logger - An optional logger instance to use for logging.
  * @returns An `IRegistry` instance that combines the specified registries.
  */
 export function getRegistry({
   registryUris,
-  enableProxy,
+  enableProxy: _enableProxy,
   branch,
   logger,
   authToken,
@@ -80,7 +81,6 @@ export function getRegistry({
           uri,
           branch,
           logger: childLogger,
-          proxyUrl: enableProxy ? PROXY_DEPLOYED_URL : undefined,
           authToken,
         });
       } else if (isProtocolUrl(uri, ['http:', 'https:'])) {

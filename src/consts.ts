@@ -17,4 +17,3 @@ export const WARP_ROUTE_DEPLOY_FILE_REGEX = new RegExp(
 );
 
 export const ABACUS_WORKS_DEPLOYER_NAME = 'Abacus Works';
-export const PROXY_DEPLOYED_URL = 'https://proxy.hyperlane.xyz';
