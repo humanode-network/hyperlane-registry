@@ -1,5 +1,18 @@
 # @humanode-hyperlane/registry
 
+## 1026.3.1
+
+### Patch Changes
+
+- `GithubRegistry` reads `humanode-network/hyperlane-registry` when given no URI, and reads GitHub directly: Hyperlane's API proxy is gone, with `enableProxy` kept as an accepted option without effect.
+- `chains/schema.json` is regenerated with our SDK.
+
+## 1026.3.0
+
+### Minor Changes
+
+- The package is `@humanode-hyperlane/registry`, built on `@humanode-hyperlane/sdk` and `utils` 1045.2.0: upstream's 26.3.0 under our scope and our version scheme (1000 added to the first non-zero component). Published by hand, before this fork's own release workflow existed.
+
 ## 26.3.0
 
 ### Minor Changes
