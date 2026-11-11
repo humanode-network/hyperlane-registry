@@ -66,15 +66,25 @@ jobs:
         run: |
           node ./scripts/validate-file-data.js
 
-  changeset:
-    if: ${{ github.event_name == 'pull_request' && github.head_ref != 'changeset-release/main' }}
+  # The combined chain metadata and addresses, the warp route configs and the
+  # optimized SVGs are generated files committed with the change that affects
+  # them. Upstream regenerated and committed them from a workflow on main
+  # through its GitHub App.
+  generated-files:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-        with:
-          # check out full history
-          fetch-depth: 0
       - name: pnpm-cache
         uses: ./.github/actions/pnpm-cache
-      - name: changeset
-        run: pnpm exec changeset status --since origin/main
+      - name: regenerate
+        run: |
+          pnpm run build
+          node ./scripts/optimize-svg.js
+      - name: check-for-changes
+        run: |
+          CHANGES=$(git status -s)
+          if [[ ! -z $CHANGES ]]; then
+            echo "Generated files are out of date; run 'pnpm run build' and 'node ./scripts/optimize-svg.js' and commit the result:"
+            echo "$CHANGES"
+            exit 1
+          fi
