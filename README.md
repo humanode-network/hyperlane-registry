@@ -1,28 +1,30 @@
-# Hyperlane Registry
+# Registry of Humanode's Hyperlane deployment
 
-A collection of configs, artifacts, and schemas for Hyperlane. See the [documentation](https://docs.hyperlane.xyz/docs/reference/registries) for more information.
+The chains and warp routes of Humanode's Hyperlane deployment, between Humanode and Base, on mainnet and testnet, and the `@humanode-hyperlane/registry` package that reads them. Our fork of Hyperlane's registry: its code and layout are upstream's, its content is ours alone.
 
 ## Contents
 
 ### Chains
 
-A list of chains and the relevant information that Hyperlane utilities and apps will require to interact with chains.
-Structured as a folder for each chain. Each folder should contain a `metadata.yaml`, `addresses.yaml`, and a `logo.svg` file.
+One directory per chain under `chains/`, each with its `metadata.yaml`, its `addresses.yaml` (the core contracts we deployed there) and its `logo.svg`, with a `darkmode-logo.svg` where the logo needs one:
 
-### Deployments
+| Chain              | Network            | Chain and domain ID |
+| ------------------ | ------------------ | ------------------- |
+| `humanode`         | Humanode mainnet   | 5234                |
+| `base`             | Base mainnet       | 8453                |
+| `humanodetestnet5` | Humanode testnet 5 | 14853               |
+| `basesepolia`      | Base Sepolia       | 84532               |
 
-#### Core
+The addresses are those of our deployment, not Hyperlane's: on Base, for example, they are our Mailbox and our hooks.
 
-Configs and artifacts for [Hyperlane Core Contract](https://docs.hyperlane.xyz/docs/guides/chains/deploy-hyperlane) deployments.
+### Warp routes
 
-#### Warp
+The HMND and USDC routes between Humanode and Base, under `deployments/warp_routes/` ([its README](deployments/warp_routes/README.md)).
 
-Address artifacts for [Warp Route](https://docs.hyperlane.xyz/docs/applications/warp-routes/overview) token deployments.
+## The package
+
+`@humanode-hyperlane/registry` bundles this content and reads it, from the package or from this repository on GitHub, which is its default. Our CLI and SDK, `@humanode-hyperlane/cli` and `sdk`, use it.
 
 #### Install `gitleaks`
 
-You need `gitleaks` installed on your machine. You can download it from [official page](https://github.com/gitleaks/gitleaks) or use a package manager of your choice.
-
-## Contributing
-
-This registry is maintained by the core Hyperlane team but community members are encouraged to add chain and deployment information here! See the [Contribution Guide](./CONTRIBUTING.md) for more information.
+The commit hooks check for secrets with `gitleaks`; install it from its [releases](https://github.com/gitleaks/gitleaks) or a package manager.
