@@ -1,5 +1,12 @@
 # @humanode-hyperlane/registry
 
+## 1026.4.0
+
+### Minor Changes
+
+- The registry holds Humanode's deployment only: the chains `humanode`, `base`, `humanodetestnet5` and `basesepolia`, with the core addresses of our deployment, and the warp routes `HMND/base-humanode`, `USDC/base-humanode`, `HMND/basesepolia-humanodetestnet5` and `USDC/basesepolia-humanodetestnet5`. Upstream's other chains and routes, and its AVS and relayer lists, are gone; `base` and `basesepolia` now describe our deployment, not Hyperlane's.
+- The warp route allowlist is empty.
+
 ## 1026.3.1
 
 ### Patch Changes
