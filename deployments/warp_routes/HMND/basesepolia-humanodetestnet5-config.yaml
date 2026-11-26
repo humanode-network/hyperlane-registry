@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../schema.json
+tokens:
+  - addressOrDenom: "0x573ffd811df3773Ba351209E726bAf662FD68098"
+    chainName: basesepolia
+    connections:
+      - token: ethereum|humanodetestnet5|0xd440EEaa44e7A50aBc49AE5885b0733d503D7B2B
+    decimals: 18
+    name: Humanode
+    standard: EvmHypSynthetic
+    symbol: HMND
+    tokenType: synthetic
+  - addressOrDenom: "0xd440EEaa44e7A50aBc49AE5885b0733d503D7B2B"
+    chainName: humanodetestnet5
+    connections:
+      - token: ethereum|basesepolia|0x573ffd811df3773Ba351209E726bAf662FD68098
+    decimals: 18
+    name: Humanode
+    standard: EvmHypNative
+    symbol: HMND
+    tokenType: native

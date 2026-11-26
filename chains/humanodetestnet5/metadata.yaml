@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../schema.json
+blocks:
+  confirmations: 1
+  estimateBlockTime: 6
+  reorgPeriod: finalized
+chainId: 14853
+contractsVariant: paris
+deployer:
+  name: Humanode
+  url: https://humanode.io
+displayName: Humanode Testnet 5
+displayNameShort: Humanode Testnet
+domainId: 14853
+gasCurrencyCoinGeckoId: humanode
+isTestnet: true
+name: humanodetestnet5
+nativeToken:
+  decimals: 18
+  name: Humanode
+  symbol: HMND
+protocol: ethereum
+rpcUrls:
+  - http: https://explorer-rpc-http.testnet5.stages.humanode.io
+technicalStack: polkadotsubstrate
+transactionOverrides:
+  gasPrice: "715000000000000"
+index:
+  from: 17143022

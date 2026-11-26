@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../schema.json
+tokens:
+  - addressOrDenom: "0x5C8bc53997995fCAc85586Fc5516db8Ebc5F0261"
+    chainName: base
+    collateralAddressOrDenom: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    connections:
+      - token: ethereum|humanode|0x5C8bc53997995fCAc85586Fc5516db8Ebc5F0261
+    decimals: 6
+    name: USD Coin
+    standard: EvmHypCollateral
+    symbol: USDC
+    tokenType: collateral
+  - addressOrDenom: "0x5C8bc53997995fCAc85586Fc5516db8Ebc5F0261"
+    chainName: humanode
+    connections:
+      - token: ethereum|base|0x5C8bc53997995fCAc85586Fc5516db8Ebc5F0261
+    decimals: 6
+    name: USD Coin
+    standard: EvmHypSynthetic
+    symbol: USDC
+    tokenType: synthetic

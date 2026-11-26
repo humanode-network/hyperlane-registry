@@ -35,13 +35,13 @@ const GITHUB_REGISTRY_BRANCH = 'main';
 
 const MOCK_CHAIN_NAME = 'mockchain';
 const MOCK_CHAIN_NAME2 = 'mockchain2';
-const MOCK_DISPLAY_NAME = 'faketherum';
+const MOCK_DISPLAY_NAME = 'fakenode';
 const MOCK_SYMBOL = 'MOCK';
 const MOCK_ADDRESS = '0x0000000000000000000000000000000000000001';
 
-// Used to verify the GithubRegistry is fetching the correct data
-// Must be kept in sync with value in canonical registry's main branch
-const ETH_MAILBOX_ADDRESS = '0xc005dc82818d67AF737725bD4bf75435d065D239';
+// Used to verify the GithubRegistry is fetching the correct data: Humanode
+// mainnet's Mailbox, as on this registry's main branch
+const HUMANODE_MAILBOX_ADDRESS = '0x326454a601707efA5E319426FA4e550432998c32';
 
 chaiUse(chaiAsPromised);
 
@@ -58,9 +58,9 @@ describe('Registry utilities', () => {
   expect(localRegistry.uri).to.be.a('string');
 
   const partialRegistry = new PartialRegistry({
-    chainMetadata: { ethereum: { chainId: 1, displayName: MOCK_DISPLAY_NAME } },
-    chainAddresses: { ethereum: { mailbox: MOCK_ADDRESS } },
-    warpRoutes: [{ tokens: [{ chainName: 'ethereum', symbol: 'USDT' }] }],
+    chainMetadata: { humanode: { chainId: 5234, displayName: MOCK_DISPLAY_NAME } },
+    chainAddresses: { humanode: { mailbox: MOCK_ADDRESS } },
+    warpRoutes: [{ tokens: [{ chainName: 'humanode', symbol: 'HMND' }] }],
   });
 
   const mergedRegistry = new MergedRegistry({
@@ -71,36 +71,36 @@ describe('Registry utilities', () => {
     it(`Lists all chains for ${registry.type} registry`, async () => {
       const chains = await registry.getChains();
       expect(chains.length).to.be.greaterThan(0);
-      expect(chains.includes('ethereum')).to.be.true;
+      expect(chains.includes('humanode')).to.be.true;
     }).timeout(5_000);
 
     it(`Fetches all chain metadata for ${registry.type} registry`, async () => {
       const metadata = await registry.getMetadata();
       expect(Object.keys(metadata).length).to.be.greaterThan(0);
-      expect(metadata['ethereum'].chainId).to.eql(1);
+      expect(metadata['humanode'].chainId).to.eql(5234);
       if (registry.type === RegistryType.Partial || registry.type === RegistryType.Merged) {
-        expect(metadata['ethereum'].displayName).to.eql(MOCK_DISPLAY_NAME);
+        expect(metadata['humanode'].displayName).to.eql(MOCK_DISPLAY_NAME);
       } else {
-        expect(metadata['ethereum'].displayName).to.eql('Ethereum');
+        expect(metadata['humanode'].displayName).to.eql('Humanode');
       }
     }).timeout(10_000);
 
     it(`Fetches single chain metadata for ${registry.type} registry`, async () => {
-      const metadata = await registry.getChainMetadata('ethereum');
-      expect(metadata!.chainId).to.eql(1);
+      const metadata = await registry.getChainMetadata('humanode');
+      expect(metadata!.chainId).to.eql(5234);
     }).timeout(5_000);
 
     it(`Fetches chain addresses for ${registry.type} registry`, async () => {
       const addresses = await registry.getAddresses();
       expect(Object.keys(addresses).length).to.be.greaterThan(0);
-      expect(addresses['ethereum'].mailbox.substring(0, 2)).to.eql('0x');
+      expect(addresses['humanode'].mailbox.substring(0, 2)).to.eql('0x');
       if (registry.type === RegistryType.Github) {
-        expect(addresses['ethereum'].mailbox).to.eql(ETH_MAILBOX_ADDRESS);
+        expect(addresses['humanode'].mailbox).to.eql(HUMANODE_MAILBOX_ADDRESS);
       }
     }).timeout(10_000);
 
     it(`Fetches single chain addresses for ${registry.type} registry`, async () => {
-      const addresses = await registry.getChainAddresses('ethereum');
+      const addresses = await registry.getChainAddresses('humanode');
       expect(addresses!.mailbox.substring(0, 2)).to.eql('0x');
     }).timeout(5_000);
 
@@ -145,10 +145,10 @@ describe('Registry utilities', () => {
 
     it(`Adds a new chain for ${registry.type} registry`, async () => {
       const mockMetadata: ChainMetadata = {
-        ...(await registry.getChainMetadata('ethereum'))!,
+        ...(await registry.getChainMetadata('humanode'))!,
         name: MOCK_CHAIN_NAME,
       };
-      const mockAddresses: ChainAddresses = await registry.getChainAddresses('ethereum')!;
+      const mockAddresses: ChainAddresses = await registry.getChainAddresses('humanode')!;
       await registry.addChain({
         chainName: MOCK_CHAIN_NAME,
         metadata: mockMetadata,
@@ -255,22 +255,22 @@ describe('Registry utilities', () => {
     it('Merges metadata from multiple registries', async () => {
       const mergedMetadata = await mergedRegistry.getMetadata();
       const localMetadata = await localRegistry.getMetadata();
-      expect(mergedMetadata['ethereum'].chainId).to.eql(1);
+      expect(mergedMetadata['humanode'].chainId).to.eql(5234);
       // Confirm the partial registry metadata is merged
-      expect(mergedMetadata['ethereum'].displayName).to.eql(MOCK_DISPLAY_NAME);
-      expect(localMetadata['ethereum'].displayName).to.not.eql(MOCK_DISPLAY_NAME);
+      expect(mergedMetadata['humanode'].displayName).to.eql(MOCK_DISPLAY_NAME);
+      expect(localMetadata['humanode'].displayName).to.not.eql(MOCK_DISPLAY_NAME);
       // Confirm other chains are not affected
-      expect(mergedMetadata['arbitrum']).to.eql(localMetadata['arbitrum']);
+      expect(mergedMetadata['base']).to.eql(localMetadata['base']);
     });
 
     it('Merges addresses from multiple registries', async () => {
       const mergedAddresses = await mergedRegistry.getAddresses();
       const localAddresses = await localRegistry.getAddresses();
       // Confirm the partial registry metadata is merged
-      expect(mergedAddresses['ethereum'].mailbox).to.eql(MOCK_ADDRESS);
-      expect(localAddresses['ethereum'].mailbox).to.not.eql(MOCK_ADDRESS);
+      expect(mergedAddresses['humanode'].mailbox).to.eql(MOCK_ADDRESS);
+      expect(localAddresses['humanode'].mailbox).to.not.eql(MOCK_ADDRESS);
       // Confirm other chains are not affected
-      expect(localAddresses['arbitrum']).to.eql(localAddresses['arbitrum']);
+      expect(localAddresses['base']).to.eql(localAddresses['base']);
     });
 
     it('ignores 404 misses from overlay registries on tolerant reads', async () => {

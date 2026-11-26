@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../schema.json
+tokens:
+  - addressOrDenom: "0x8735c51437677c4023E20DdB5B213020831C9276"
+    chainName: basesepolia
+    collateralAddressOrDenom: "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+    connections:
+      - token: ethereum|humanodetestnet5|0x73e4C2258bF9428A0db2c7865A02D4e25488c6fE
+    decimals: 6
+    name: USDC
+    standard: EvmHypCollateral
+    symbol: USDC
+    tokenType: collateral
+  - addressOrDenom: "0x73e4C2258bF9428A0db2c7865A02D4e25488c6fE"
+    chainName: humanodetestnet5
+    connections:
+      - token: ethereum|basesepolia|0x8735c51437677c4023E20DdB5B213020831C9276
+    decimals: 6
+    name: USD Coin
+    standard: EvmHypSynthetic
+    symbol: USDC
+    tokenType: synthetic

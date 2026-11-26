@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../schema.json
+basesepolia:
+  type: collateral
+  token: "0x036CbD53842c5426634e7929541eC2318f3dCF7e"
+  owner: "0x63C162ADC044E672E68A97c63c497bB7eF7b1c2C"
+  destinationGas:
+    humanodetestnet5: "250000"
+  gas: 250000
+  tokenFee:
+    type: LinearFee
+    bps: 30
+    owner: "0x63C162ADC044E672E68A97c63c497bB7eF7b1c2C"
+  interchainSecurityModule:
+    type: staticAggregationIsm
+    threshold: 3
+    modules:
+      - type: messageIdMultisigIsm
+        threshold: 2
+        validators:
+          [
+            "0x34B5144c1291095e285c32a26190bAc6b9bd78d6",
+            "0x5edc642F6A213B536d35AD9cE0f685dba92562a1",
+            "0x7B7126723A12Cc9d8C6D50EDF6278E4F7BA35089",
+          ]
+      - type: pausableIsm
+        owner: "0x63C162ADC044E672E68A97c63c497bB7eF7b1c2C"
+        paused: false
+      - type: rateLimitedIsm
+        owner: "0x63C162ADC044E672E68A97c63c497bB7eF7b1c2C"
+        maxCapacity: "500083200"
+        duration: 86400
+  hook:
+    type: aggregationHook
+    hooks:
+      - type: rateLimitedHook
+        owner: "0x63C162ADC044E672E68A97c63c497bB7eF7b1c2C"
+        maxCapacity: "500083200"
+        duration: 86400
+      - "0x9C4A115b349Dca6a51A37d03359BF0692dF4c179"
+humanodetestnet5:
+  type: synthetic
+  destinationGas:
+    basesepolia: "250000"
+  gas: 250000
+  name: USD Coin
+  symbol: USDC
+  decimals: 6
+  owner: "0x26F19ED74841226A84A86F1BAe7396Fc3822EE4C"
+  tokenFee:
+    type: LinearFee
+    bps: 30
+    owner: "0x26F19ED74841226A84A86F1BAe7396Fc3822EE4C"
+  interchainSecurityModule:
+    type: staticAggregationIsm
+    threshold: 3
+    modules:
+      - type: messageIdMultisigIsm
+        threshold: 2
+        validators:
+          [
+            "0xbeC42dc19Aa9B7B91dAceEB57b2b0B9D37EbC305",
+            "0x66c88083510961071E82e89372357177354ebc81",
+            "0x51F205FC8C55f372B50f56A8668Bf98f2894BfCd",
+          ]
+      - type: pausableIsm
+        owner: "0x26F19ED74841226A84A86F1BAe7396Fc3822EE4C"
+        paused: false
+      - type: rateLimitedIsm
+        owner: "0x26F19ED74841226A84A86F1BAe7396Fc3822EE4C"
+        maxCapacity: "500083200"
+        duration: 86400
+  hook:
+    type: aggregationHook
+    hooks:
+      - type: rateLimitedHook
+        owner: "0x26F19ED74841226A84A86F1BAe7396Fc3822EE4C"
+        maxCapacity: "500083200"
+        duration: 86400
+      - "0x9C4A115b349Dca6a51A37d03359BF0692dF4c179"

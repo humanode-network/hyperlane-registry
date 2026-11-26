@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../schema.json
+humanode:
+  type: native
+  owner: "0x568B9E5658B2e10AF884e4404B26A849300886A4"
+  destinationGas:
+    base: "250000"
+  gas: 250000
+  tokenFee:
+    type: LinearFee
+    bps: 30
+    owner: "0x568B9E5658B2e10AF884e4404B26A849300886A4"
+  interchainSecurityModule:
+    type: staticAggregationIsm
+    threshold: 3
+    modules:
+      - type: messageIdMultisigIsm
+        threshold: 3
+        validators:
+          [
+            "0x104adD2Ba4c4fFA7a8BA9b5843E4b9D6A8A60B54",
+            "0x1B7A3ca6e49fa97Ea2DBAabE4afdeC64228d96fC",
+            "0x1f402b170Ce3B9ED54b13a44e1BE3a7FD3bEecC1",
+            "0xC51FBEc4A520E433550E6320168B1355F2e1d824",
+            "0xD52bC675222a9B7e9c1e540462b7Af52419d7f5A",
+          ]
+      - type: pausableIsm
+        owner: "0x568B9E5658B2e10AF884e4404B26A849300886A4"
+        paused: false
+      - type: rateLimitedIsm
+        owner: "0x568B9E5658B2e10AF884e4404B26A849300886A4"
+        maxCapacity: "2500000000000000000070400"
+        duration: 86400
+  hook:
+    type: aggregationHook
+    hooks:
+      - type: rateLimitedHook
+        owner: "0x568B9E5658B2e10AF884e4404B26A849300886A4"
+        maxCapacity: "2500000000000000000070400"
+        duration: 86400
+      - "0x6d47692C5198625855Fe9920485ff826Cf13e322"
+base:
+  type: synthetic
+  destinationGas:
+    humanode: "250000"
+  gas: 250000
+  name: Humanode
+  symbol: HMND
+  decimals: 18
+  owner: "0xe6ABbC49eC8a64f175211b46A221043f18F89eb0"
+  tokenFee:
+    type: LinearFee
+    bps: 30
+    owner: "0xe6ABbC49eC8a64f175211b46A221043f18F89eb0"
+  interchainSecurityModule:
+    type: staticAggregationIsm
+    threshold: 3
+    modules:
+      - type: messageIdMultisigIsm
+        threshold: 3
+        validators:
+          [
+            "0x5D3719Ff9cbFe15aF9f651B6A60D725Efc8C0599",
+            "0x0F19a60AB9C97eaE37c413A349Fd66F2f27313D8",
+            "0x8E8941F88F35CeFD6caddF6D39d2c7F258962905",
+            "0x8057f3498124D9203dC9B51991A6242237099E68",
+            "0xE2db924C8C160349bbe0317cA67C92d05E542d95",
+          ]
+      - type: pausableIsm
+        owner: "0xe6ABbC49eC8a64f175211b46A221043f18F89eb0"
+        paused: false
+      - type: rateLimitedIsm
+        owner: "0xe6ABbC49eC8a64f175211b46A221043f18F89eb0"
+        maxCapacity: "2500000000000000000070400"
+        duration: 86400
+  hook:
+    type: aggregationHook
+    hooks:
+      - type: rateLimitedHook
+        owner: "0xe6ABbC49eC8a64f175211b46A221043f18F89eb0"
+        maxCapacity: "2500000000000000000070400"
+        duration: 86400
+      - "0x6d47692C5198625855Fe9920485ff826Cf13e322"

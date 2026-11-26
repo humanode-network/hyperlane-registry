@@ -118,7 +118,8 @@ describe('Warp Core Configs', () => {
       console.error(`Failed to load warp route allowlist at ${WARP_ROUTE_ALLOWLIST_PATH}`, error);
       throw error;
     }
-    expect(allowlist?.warpRouteIds).to.be.an('array').that.is.not.empty;
+    // Ours lists no routes; whatever it lists must exist.
+    expect(allowlist?.warpRouteIds).to.be.an('array');
 
     const seen = new Set<string>();
     const routeIds = allowlist.warpRouteIds
@@ -138,19 +139,7 @@ describe('Warp Deploy Configs', () => {
   const localRegistry = new FileSystemRegistry({ uri: BASE_URI });
   const warpDeploys = localRegistry.getWarpDeployConfigs();
 
-  // These Ids do not validate due to owner
-  // Remove after https://github.com/hyperlane-xyz/hyperlane-monorepo/issues/5292
-  const excludeIds = [
-    'ECLIP/arbitrum-neutron',
-    'INJ/inevm-injective',
-    'TIA/arbitrum-neutron',
-    'INJ/inevm-injective',
-    'TIA/arbitrum-neutron',
-    'TIA/eclipsemainnet-stride',
-    'TIA/mantapacific-neutron',
-    'stTIA/eclipsemainnet-stride',
-  ];
-  const configs = Object.keys(warpDeploys).filter((id) => !excludeIds.includes(id));
+  const configs = Object.keys(warpDeploys);
   for (const id of configs) {
     it(`Deploy config ${id} is valid`, async () => {
       WarpRouteDeployConfigSchema.parse(warpDeploys[id]);

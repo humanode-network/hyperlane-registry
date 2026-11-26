@@ -1,17 +1,14 @@
-# Hyperlane Warp Routes
+# Warp Routes
 
-This directory contains a list of Warp Route configs. They can be used to interact with warp routes in the [Warp UI](https://github.com/hyperlane-xyz/hyperlane-warp-ui-template) or [CLI](https://www.npmjs.com/package/@humanode-hyperlane/cli).
+The warp routes between Humanode and Base, on mainnet and testnet, one directory per asset symbol:
 
-## Structure
+| Route ID                            | Chains                           | Token                                                           |
+| ----------------------------------- | -------------------------------- | --------------------------------------------------------------- |
+| `HMND/base-humanode`                | Base, Humanode                   | HMND: native on Humanode, synthetic on Base                     |
+| `USDC/base-humanode`                | Base, Humanode                   | USDC: collateral on Base (Circle's USDC), synthetic on Humanode |
+| `HMND/basesepolia-humanodetestnet5` | Base Sepolia, Humanode testnet 5 | the same, on testnet                                            |
+| `USDC/basesepolia-humanodetestnet5` | Base Sepolia, Humanode testnet 5 | the same, on testnet                                            |
 
-Warp Routes are organized here by asset symbol.
-Configs are named based on the names of the chains involved, organized alphabetically.
-For example, a route between `ethereum` and `inevm` would be called `ethereum-inevm.yaml`
+A route's `-config.yaml` gives its token addresses, names and symbols, which tell these tokens from others of the same name; its `-deploy.yaml` gives the configuration it was deployed with. A route's ID is its symbol and its chains in alphabetical order. The configs follow the WarpCore schema of the SDK, `@humanode-hyperlane/sdk`.
 
-## Schema
-
-These configs use the WarpCore schema as defined in the [Hyperlane SDK here](https://github.com/hyperlane-xyz/hyperlane-monorepo/blob/main/typescript/sdk/src/warp/types.ts).
-
-## Contributing
-
-New routes can be added manually or via the CLI's `hyperlane deploy warp` command.
+`warpRouteAllowlist.yaml` is empty: it lists bridge-only routes for an external routing engine, which these routes do not use.

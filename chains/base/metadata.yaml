@@ -1,26 +1,12 @@
 # yaml-language-server: $schema=../schema.json
-blockExplorers:
-  - apiKey: GP69JEAP2W7YFJT9ZJTEPGQT6Y6KMW44ZN
-    apiUrl: https://api.etherscan.io/v2/api?chainid=8453
-    family: etherscan
-    name: BaseScan
-    url: https://basescan.org
-  - apiUrl: https://api.routescan.io/v2/network/mainnet/evm/8453/etherscan/api
-    family: routescan
-    name: Base Explorer
-    url: https://base.thesuperscan.io
-  - apiUrl: https://base.blockscout.com/api
-    family: blockscout
-    name: Base Mainnet explorer
-    url: https://base.blockscout.com
 blocks:
   confirmations: 3
   estimateBlockTime: 2
   reorgPeriod: 10
 chainId: 8453
 deployer:
-  name: Abacus Works
-  url: https://www.hyperlane.xyz
+  name: Humanode
+  url: https://humanode.io
 displayName: Base
 domainId: 8453
 gasCurrencyCoinGeckoId: ethereum
@@ -32,11 +18,9 @@ nativeToken:
   symbol: ETH
 protocol: ethereum
 rpcUrls:
-  - http: https://base-pokt.nodies.app
-  - http: https://base.public.blockpi.network/v1/rpc/public
   - http: https://mainnet.base.org
-  - http: https://base.drpc.org
-  - http: https://1rpc.io/base
   - http: https://base.gateway.tenderly.co
-  - http: https://base-rpc.publicnode.com
+  - http: https://base-pokt.nodies.app
 technicalStack: opstack
+index:
+  from: 62115089

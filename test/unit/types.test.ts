@@ -19,7 +19,7 @@ const warpJsonSchema = z.fromJSONSchema(
 describe('Registry schemas', () => {
   it('validates SDK-owned chain metadata', () => {
     const result = UpdateChainSchema.safeParse({
-      metadata: chainMetadata.ethereum,
+      metadata: chainMetadata.humanode,
     });
 
     expect(result.success).to.equal(true);
@@ -72,10 +72,21 @@ describe('Registry schemas', () => {
   });
 
   it('generates a chain JSON schema that accepts valid metadata', () => {
-    expect(chainJsonSchema.safeParse(chainMetadata.ethereum).success).to.equal(true);
+    expect(chainJsonSchema.safeParse(chainMetadata.humanode).success).to.equal(true);
   });
 
   it('generates a warp JSON schema that accepts fee constants', () => {
-    expect(warpJsonSchema.safeParse(warpRouteConfigs['TIA/mantapacific']).success).to.equal(true);
+    // Our routes carry no fee constants, so one is added to a route of ours.
+    const route = warpRouteConfigs['HMND/base-humanode'];
+    const withFeeConstants = {
+      ...route,
+      options: {
+        ...route.options,
+        interchainFeeConstants: [
+          { addressOrDenom: '0x0000000000000000000000000000000000000001', amount: 270000, destination: 'base', origin: 'humanode' },
+        ],
+      },
+    };
+    expect(warpJsonSchema.safeParse(withFeeConstants).success).to.equal(true);
   });
 });
